@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard - Your CA Progress | CAExam.online</title>
+    <!-- Same head -->
+</head>
+<body data-theme="light">
+    <!-- Same header (user-menu visible) -->
+    <main>
+        <section class="dashboard-hero">
+            <div class="container">
+                <h1>Welcome Back, <span id="user-name"></span>!</h1>
+                <p>Track your progress, review saved quizzes, and set goals.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-content">
+            <div class="container">
+                <div class="dashboard-grid">
+                    <article class="dash-card">
+                        <h3>Quiz History</h3>
+                        <ul id="quiz-history"></ul>
+                    </article>
+                    <article class="dash-card">
+                        <h3>Progress Chart</h3>
+                        <canvas id="progress-chart" width="300" height="200"></canvas> <!-- Simple JS chart -->
+                    </article>
+                    <article class="dash-card">
+                        <h3>Saved Resources</h3>
+                        <ul id="saved-resources"></ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <script src="script.js"></script>
+</body>
+</html>
