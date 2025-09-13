@@ -1,84 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exams & Resources - CA Exam Online</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Same head -->
+    <title>Exams & Resources - CAExam.online</title>
 </head>
-<body>
-    <header>
-        <!-- Same navbar -->
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <img src="images/logo.png" alt="CA Exam Online Logo" class="logo-img">
-                    <span>CAExam.online</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="exams.html">Exams & Resources</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+<body data-theme="light">
+    <!-- Same loader, header, auth-modal -->
+    <main id="main-content">
+        <section class="exams-hero" aria-labelledby="exams-heading">
+            <div class="container">
+                <h1 id="exams-heading">CA Exams: Resources & Mock Tests</h1>
+                <p>Comprehensive materials for ICAI CA Foundation (May 2024), Intermediate (Nov 2023), and Final. Search and filter for targeted prep.</p>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search resources (e.g., 'GST Foundation')" aria-label="Search resources">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
                 </div>
             </div>
-        </nav>
-    </header>
+        </section>
 
-    <section class="exams-hero">
-        <div class="container">
-            <h1>CA Exams & Study Resources</h1>
-            <p>Prepare effectively with our curated materials for ICAI's CA exams.</p>
-        </div>
-    </section>
+        <section class="resources" aria-labelledby="resources-heading">
+            <div class="container">
+                <h2 id="resources-heading">Exam Levels & Materials</h2>
+                <div class="levels-grid" id="resources-list">
+                    <!-- Dynamic content loaded by JS -->
+                </div>
+                <button id="take-quiz-btn" class="cta-button">Take CA Foundation Mock Quiz</button>
+            </div>
+        </section>
 
-    <section class="resources">
-        <div class="container">
-            <h2>CA Exam Levels</h2>
-            <div class="levels-grid">
-                <div class="level-card">
-                    <h3>CA Foundation</h3>
-                    <p>Entry-level exam covering basics in accounting, law, and math. Next attempt: May 2024.</p>
-                    <a href="#" class="resource-link">Download Syllabus PDF</a>
+        <!-- Quiz Modal -->
+        <div id="quiz-modal" class="modal quiz-modal" role="dialog" aria-hidden="true">
+            <div class="modal-content quiz-content">
+                <span class="close">&times;</span>
+                <div id="quiz-header">
+                    <h2>CA Foundation Mock Quiz</h2>
+                    <div class="quiz-timer">Time: <span id="timer">10:00</span></div>
+                    <div class="quiz-progress">Question <span id="current-q">1</span> of 10</div>
                 </div>
-                <div class="level-card">
-                    <h3>CA Intermediate</h3>
-                    <p>Advanced topics in auditing, taxation, and financial management. Group I & II details inside.</p>
-                    <a href="#" class="resource-link">Mock Tests</a>
+                <div id="quiz-body">
+                    <!-- Questions loaded by JS -->
                 </div>
-                <div class="level-card">
-                    <h3>CA Final</h3>
-                    <p>Strategic level with case studies and electives. Prepare for November 2023 session.</p>
-                    <a href="#" class="resource-link">Revision Notes</a>
+                <div id="quiz-footer" style="display: none;">
+                    <h3>Your Score: <span id="quiz-score"></span>/10</h3>
+                    <button id="retake-quiz">Retake Quiz</button>
+                    <button id="save-score">Save to Dashboard</button>
                 </div>
             </div>
-            <h2>Latest Updates</h2>
-            <ul class="updates-list">
-                <li>ICAI has revised the DT paper for Intermediate – check new pattern.</li>
-                <li>Mock test series starts on 15th Oct 2023 – register now!</li>
-                <li>Syllabus 2024: Focus on GST amendments.</li>
-            </ul>
         </div>
-    </section>
+    </main>
 
     <!-- Same footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 CAExam.online. All rights reserved. | Helping CA Aspirants Succeed.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
