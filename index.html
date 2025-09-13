@@ -3,88 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA Exam Online - Prepare for CA Foundation, Intermediate & Final</title>
+    <meta name="description" content="Top CA Exam Preparation Platform: Mock Tests, Resources for Foundation, Intermediate & Final. ICAI-Aligned Study Materials.">
+    <meta property="og:title" content="CAExam.online - Excel in CA Exams">
+    <meta property="og:description" content="Access free mock tests, study notes, and updates for CA aspirants.">
+    <meta property="og:image" content="images/hero-bg.jpg">
+    <title>CAExam.online - Premier CA Exam Preparation</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body data-theme="light">
+    <!-- Loading Spinner -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+
     <header>
-        <nav class="navbar">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <div class="logo">
-                    <img src="images/logo.png" alt="CA Exam Online Logo" class="logo-img">
+                    <img src="images/logo.png" alt="CAExam.online Logo" class="logo-img" loading="lazy">
                     <span>CAExam.online</span>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="exams.html">Exams & Resources</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" data-page="home">Home</a></li>
+                    <li><a href="about.html" data-page="about">About</a></li>
+                    <li><a href="exams.html" data-page="exams">Exams & Resources</a></li>
+                    <li><a href="blog.html" data-page="blog">Blog</a></li>
+                    <li><a href="contact.html" data-page="contact">Contact</a></li>
+                    <li id="user-menu" style="display: none;">
+                        <a href="dashboard.html" data-page="dashboard">Dashboard</a>
+                        <button id="logout-btn">Logout</button>
+                    </li>
+                    <li><button id="login-btn" class="auth-btn">Login</button></li>
+                    <li><button id="dark-toggle" class="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
                 </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="hamburger" aria-label="Toggle Menu" role="button" tabindex="0">
+                    <span></span><span></span><span></span>
                 </div>
             </div>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Excel in CA Exams with Expert Guidance</h1>
-            <p>Access updated study materials, mock tests, and tips for CA Foundation, Intermediate, and Final levels. Start your journey to becoming a Chartered Accountant today!</p>
-            <a href="exams.html" class="cta-button">Get Started</a>
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Login</h2>
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required aria-required="true">
+                </div>
+                <button type="submit">Login</button>
+                <p id="toggle-auth">Don't have an account? <a href="#" id="switch-to-register">Register</a></p>
+            </form>
         </div>
-        <img src="images/hero-bg.jpg" alt="Student Studying for CA Exam" class="hero-img">
-    </section>
+    </div>
 
-    <section class="features">
-        <div class="container">
-            <h2>Why Choose CAExam.online?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-book"></i>
-                    <h3>Comprehensive Resources</h3>
-                    <p>Free PDFs, video lectures, and revision notes for all CA levels.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-tasks"></i>
-                    <h3>Mock Tests & Practice</h3>
-                    <p>Real-time exam simulations with detailed analytics to track progress.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Exam Updates</h3>
-                    <p>Latest schedules, syllabus changes, and ICAI notifications.</p>
+    <main id="main-content" role="main">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-overlay"></div>
+            <div class="hero-content animate-fade-in">
+                <h1 id="hero-heading" class="heading-primary">Master CA Exams with Precision</h1>
+                <p class="hero-desc">Join 10,000+ aspirants accessing AI-powered mock tests, personalized study plans, and ICAI updates for Foundation, Intermediate, and Final. Your path to CA success starts here.</p>
+                <div class="hero-actions">
+                    <a href="exams.html" class="cta-button primary">Start Free Quiz</a>
+                    <a href="about.html" class="cta-button secondary">Learn More</a>
                 </div>
             </div>
-        </div>
-    </section>
+            <img src="images/hero-bg.jpg" alt="Aspiring CA student preparing with books and laptop" class="hero-img" loading="lazy">
+        </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <h2>What Our Users Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <p>"This site helped me clear CA Intermediate in one go. Great mock tests!"</p>
-                    <span>- Priya S., CA Aspirant</span>
-                </div>
-                <div class="testimonial">
-                    <p>"Updated resources saved my time. Highly recommended for Foundation level."</p>
-                    <span>- Rahul K., Student</span>
+        <section class="features" aria-labelledby="features-heading">
+            <div class="container">
+                <h2 id="features-heading" class="heading-secondary">Why CAExam.online Stands Out</h2>
+                <div class="features-grid">
+                    <article class="feature-card animate-slide-up" tabindex="0">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <h3>AI-Driven Insights</h3>
+                        <p>Adaptive learning paths and performance analytics to identify weak areas in accounting, law, and taxation.</p>
+                    </article>
+                    <article class="feature-card animate-slide-up" tabindex="0">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <h3>Real Exam Simulation</h3>
+                        <p>Timed mock tests mirroring ICAI pattern, with instant feedback and detailed solutions.</p>
+                    </article>
+                    <article class="feature-card animate-slide-up" tabindex="0">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <h3>Community Support</h3>
+                        <p>Forums, webinars, and mentor sessions from qualified CAs to resolve doubts 24/7.</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
+        <section class="stats" aria-labelledby="stats-heading">
+            <div class="container">
+                <h2 id="stats-heading" class="heading-secondary">Our Impact</h2>
+                <div class="stats-grid">
+                    <div class="stat animate-counter">
+                        <span id="users-count">0</span><span>+</span>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat animate-counter">
+                        <span id="quizzes-count">0</span><span>+</span>
+                        <p>Quizzes Taken</p>
+                    </div>
+                    <div class="stat animate-counter">
+                        <span id="success-count">0</span><span>%</span>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+            <div class="container">
+                <h2 id="newsletter-heading">Stay Updated</h2>
+                <p>Subscribe for weekly CA tips, syllabus alerts, and exclusive resources.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required aria-required="true">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
         <div class="container">
-            <p>&copy; 2023 CAExam.online. All rights reserved. | Helping CA Aspirants Succeed.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CAExam.online</h3>
+                    <p>Empowering CA aspirants since 2023 with cutting-edge tools.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="exams.html">Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CAExam.online. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
     </footer>
